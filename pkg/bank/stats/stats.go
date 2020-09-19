@@ -13,3 +13,14 @@ func Avg(payments []types.Payment) types.Money {
 	average = average / types.Money(length)
 	return average
 } 
+
+func TotalInCategory(payments []types.Payment, category types.Category) types.Money {
+	sum := types.Money(0)
+		
+	for _, payment := range payments {
+		if payment.Category == category {
+			sum += payment.Amount	
+		}
+	}	
+	return sum
+} 
